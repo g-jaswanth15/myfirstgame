@@ -6,32 +6,39 @@
         </title>
         <link rel="stylesheet" href="1.css">
 
-        <!-- <iframe src="https://www.youtuberepeater.com/watch?v=BtVugvboad0#gsc.tab=0" width="0" height="0" allowfullscreen frameborder="0"></iframe> -->
+        
     </head>
     
     <body>
-        <h1>colour tiles</h1>
+        <h1>💥colour tiles💥</h1>
         <br>
         <br>
-        <audio wdith="20px"autoplay src="hemanth.mp3" height="20px" ></audio>
+        
+        <audio id="music"  src="1delta.mp3"></audio>
+        <audio id="music1"  src="1.mp3"></audio>
+        <audio id="music2"  src="1delta.mp3"></audio>
 
-        <div style="margin-bottom: 50px;"></div>
+        <div style="margin-bottom: 30px;"></div>
 
+        <div id="about1" class="about">⭐ The game is to set 3 * 3 cube face in middle of the 5 * 5 cube face</div>
+        <div id="about2" class="about">⭐ The game is to set 4 * 4 cube face in middle of the 6 * 6 cube face</div>
+ 
+        <div style="margin-bottom: 20px;"></div>
         <button id="button" onclick="startcounter()">START THE GAME</button>
         
         <br>
+        <div id="num" class="moves">Number of Moves :</div><div class="moves" id="numberofmoves"></div>
+        <div class="moves" id="numberofmoves1"></div>
         <br>
-        
+        <br>
         
         <button id="reload" > ⟳ </button><div id="countertime"></div>
         <div id="secondcountertime"></div>
 
-        
-        
 
         <div id="container1">
             <!-- <img src="puzzle.jpg" alt=""> -->
-            <div id="firstrow" class="row">
+            <div id="row1" class="row">
                 <div id="tile1" class="cube1"></div>
                 <div id="tile2" class="cube1"></div>
                 <div id="tile3" class="cube1"></div>
@@ -41,7 +48,7 @@
                 <div id="puzzle4" class="cube3"></div>
             </div>
     
-            <div id="secondrow"class="row">
+            <div id="row2"class="row">
                 <div id="tile4" class="cube1"></div>
                 <div id="tile5" class="cube1"></div>
                 <div id="tile6" class="cube1"></div>
@@ -51,7 +58,7 @@
                 <div id="puzzle8" class="cube3"></div>
             </div>
     
-            <div id="thirdrow" class="row">
+            <div id="row3" class="row">
                 <div id="tile7" class="cube1"></div>
                 <div id="tile8" class="cube1"></div>
                 <div id="tile9" class="cube1"></div>
@@ -61,22 +68,25 @@
                 <div id="puzzle12" class="cube3"></div>
             </div>
 
-            <div id="fourthrow" class="row">
+            <div id="row4" class="row">
                 <div id="puzzle13" class="cube3"></div>
                 <div id="puzzle14" class="cube3"></div>
                 <div id="puzzle15" class="cube3"></div>
                 <div id="puzzle16" class="cube3"></div>
             </div>
         </div>
-
         
         <!-- <p class="parastyles" id="countertime"> </p> -->
         <div style="margin-bottom: 50px;"></div>
 
         <button id="normalmode" onclick="secondcounter()">next level</button>
         <br>
+
+        <div class="score" id="score"></div>
+        <div class="score" id="highscore"></div>
+
         <h2 id="won1"></h2>
-    
+
         <h2 id="won2"></h2>
          <br>
         <button id="playagain" >PLAY AGAIN</button>
@@ -139,12 +149,8 @@
         </div>
 
         <div id="swap"></div>
-
-        
     
         <div style="margin-bottom: 500px;"></div>
-
-        
 
         <script src="1.js"></script>
     
