@@ -31,6 +31,7 @@ h1 {
     margin-right: 30%;
     border:4px rgb(228, 241, 44) solid ;
     border-radius: 30px;
+   
 }
 #button:hover{
     background-color: darkred;
@@ -57,6 +58,7 @@ h1 {
     border:4px rgb(228, 241, 44) solid ;
     border-radius: 30px;
     float: right;
+   
 }
 #reload:hover{
     background-color: darkred;
@@ -217,4 +219,13 @@ img{
     background-color: rgb(61, 231, 18);
     border-radius: 15px;
 }
-
+@media  screen and (max-width : 812px) {
+    .row1{
+        height: 108px;
+        border:  4px;
+        box-sizing: border-box;
+        margin-left: auto;
+        
+    }
+    
+}
