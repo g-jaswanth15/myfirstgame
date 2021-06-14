@@ -106,6 +106,27 @@ tile1 =  document.getElementById('box'+1);
 console.log(tile1.id);
 var num = 0;
 
+function check(){
+    let arr = [2, 3, 4];
+    let e = 1;
+    
+    for (let i = 1; i <= 3; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            let num = 5 * i + arr[j];
+            let firstbackgroundColor = document.getElementById("box" + num).style.backgroundColor;
+            let secondbackgroundColor = document.getElementById("tile" + e).style.backgroundColor;
+            e++;
+        
+        if(firstbackgroundColor !== secondbackgroundColor){
+            return false;
+            
+        }
+    }
+}
+            return true;
+  
+        }  
+
     document.querySelectorAll('.cube2').forEach(item =>{item.addEventListener('click',function (event){
              
             id = event.target.id;
@@ -113,37 +134,7 @@ var num = 0;
              var tile = document.getElementById(id);
             let i = parseInt(id.substring(3, id.length));
 
-            if(Boolean (check())){
-                document.querySelectorAll('.cube2').forEach(item =>{item.style.display = 'none'  })
-                document.querySelectorAll('.cube1').forEach(item =>{item.style.display = 'none'  })
-                document.getElementById('won1').style.display = 'block';
-                document.getElementById('won1').innerText = '🥳️Congrats you won the Easy mode  Play Normal mode🥳️';
-                clearInterval(firstmode);
-                document.querySelectorAll('.score').forEach(item =>{item.style.display = 'block'})
-                document.getElementById('normalmode').style.display = 'block';
-                var totalscore = Math.round(10000 * (1/countercount) + 1000 * (1/num)) ;
-                document.getElementById('score').innerText = "💫TOTAL SCORE :" + totalscore;
-                play1.pause();
-                play2.play();
-                
-                if(localStorage.getItem("best") == null){
-                    localStorage.setItem("best",totalscore)
-                     var highscore = localStorage.getItem("best")
-                    console.log('hello')
-                    document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
-                }
-                else if(totalscore > localStorage.getItem('best')){
-                     localStorage.setItem("best",totalscore)
-                     var highscore = localStorage.getItem("best")
-                     document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
-                }
-                else{
-                    var highscore = localStorage.getItem("best")
-                    console.log('hi')
-                    document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore
-                }
-               
-            }
+            
                 
             if(document.getElementById('box'+i).style.backgroundColor !== "white")
             {
@@ -213,36 +204,65 @@ var num = 0;
             }
             }
         }
-        document.getElementById('numberofmoves').innerText = num;  
-    }
-    )
-    }
-    )
-
-   
-function check(){
-    let arr = [2, 3, 4];
-    let e = 1;
-    
-    for (let i = 1; i <= 3; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            let num = 5 * i + arr[j];
-            let firstbackgroundColor = document.getElementById("box" + num).style.backgroundColor;
-            let secondbackgroundColor = document.getElementById("tile" + e).style.backgroundColor;
-            e++;
-        
-        if(firstbackgroundColor !== secondbackgroundColor){
-            return false;
+        document.getElementById('numberofmoves').innerText = num; 
+        if(Boolean (check())){
+            document.querySelectorAll('.cube2').forEach(item =>{item.style.display = 'none'  })
+            document.querySelectorAll('.cube1').forEach(item =>{item.style.display = 'none'  })
+            document.getElementById('won1').style.display = 'block';
+            document.getElementById('won1').innerText = '🥳️Congrats you won the Easy mode  Play Normal mode🥳️';
+            clearInterval(firstmode);
+            document.querySelectorAll('.score').forEach(item =>{item.style.display = 'block'})
+            document.getElementById('normalmode').style.display = 'block';
+            var totalscore = Math.round(10000 * (1/countercount) + 1000 * (1/num)) ;
+            document.getElementById('score').innerText = "💫TOTAL SCORE :" + totalscore;
+            play1.pause();
+            play2.play();
             
+            if(localStorage.getItem("best") == null){
+                localStorage.setItem("best",totalscore)
+                 var highscore = localStorage.getItem("best")
+                console.log('hello')
+                document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
+            }
+            else if(totalscore > localStorage.getItem('best')){
+                 localStorage.setItem("best",totalscore)
+                 var highscore = localStorage.getItem("best")
+                 document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
+            }
+            else{
+                var highscore = localStorage.getItem("best")
+                console.log('hi')
+                document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore
+            }
+           
+        } 
+    }
+    )
+    }
+    )
+      
+    
+
+    function check(){
+        let arr = [2, 3, 4];
+        let e = 1;
+        
+        for (let i = 1; i <= 3; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                let num = 5 * i + arr[j];
+                let firstbackgroundColor = document.getElementById("box" + num).style.backgroundColor;
+                let secondbackgroundColor = document.getElementById("tile" + e).style.backgroundColor;
+                e++;
+            
+            if(firstbackgroundColor !== secondbackgroundColor){
+                return false;
+                
+            }
         }
     }
-}
-            return true;
-  
-        }   
-
+                return true;
       
-
+            }  
 function change(box2,box3){
     swap.style.backgroundColor = box2.style.backgroundColor ;
     box2.style.backgroundColor = box3.style.backgroundColor;
@@ -293,40 +313,7 @@ document.querySelectorAll('.cube4').forEach(item =>{item.addEventListener('click
      var tile = document.getElementById(id);
     let i = parseInt(id.substring(5, id.length));
 
-    if(Boolean (finish())){
-        document.querySelectorAll('.score').forEach(item =>{item.style.display = 'block'})
-        document.querySelectorAll('.cube3').forEach(item =>{item.style.display = 'none'  })
-        document.querySelectorAll('.cube4').forEach(item =>{item.style.display = 'none'  })
-        document.getElementById('won2').style.display = 'block';
-        document.getElementById('won2').innerText = '🥳️Congratulations buddy YOU WON THE GAME🥳️';
-        document.getElementById('reload').style.display = 'none';
-        document.getElementById('playagain').style.display = 'block';
-        document.getElementById('playagain').addEventListener('click',()=>{
-            window.location.reload(true);
-            play2.pause()
-        })
-        play3.pause();
-            play2.play();
-        clearInterval(secondmode);
-        var totalscore = Math.round(10000 * (1/secondcountercount) + 1000 * (1/num)) ;
-                document.getElementById('score').innerText = "💫TOTAL SCORE :" + totalscore;
-                
-                if(localStorage.getItem("best1") == null){
-                    localStorage.setItem("best1",totalscore)
-                     var highscore = localStorage.getItem("best1")
-                    document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
-                }
-                else if(totalscore > localStorage.getItem('best1')){
-                     localStorage.setItem("best1",totalscore)
-                     var highscore = localStorage.getItem("best1")
-                     document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore;
-                }
-                else{
-                    var highscore = localStorage.getItem("best1");
-                    document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore
-                }
-    
-   }
+   
     if(document.getElementById('delta'+i).style.backgroundColor !== "white")
     {
         
@@ -396,6 +383,40 @@ document.querySelectorAll('.cube4').forEach(item =>{item.addEventListener('click
     }
 }
     document.getElementById('numberofmoves1').innerText = num1;
+    if(Boolean (finish())){
+        document.querySelectorAll('.score').forEach(item =>{item.style.display = 'block'})
+        document.querySelectorAll('.cube3').forEach(item =>{item.style.display = 'none'  })
+        document.querySelectorAll('.cube4').forEach(item =>{item.style.display = 'none'  })
+        document.getElementById('won2').style.display = 'block';
+        document.getElementById('won2').innerText = '🥳️Congratulations buddy YOU WON THE GAME🥳️';
+        document.getElementById('reload').style.display = 'none';
+        document.getElementById('playagain').style.display = 'block';
+        document.getElementById('playagain').addEventListener('click',()=>{
+            window.location.reload(true);
+            play2.pause()
+        })
+        play3.pause();
+            play2.play();
+        clearInterval(secondmode);
+        var totalscore = Math.round(10000 * (1/secondcountercount) + 1000 * (1/num)) ;
+                document.getElementById('score').innerText = "💫TOTAL SCORE :" + totalscore;
+                
+                if(localStorage.getItem("best1") == null){
+                    localStorage.setItem("best1",totalscore)
+                     var highscore = localStorage.getItem("best1")
+                    document.getElementById('highscore').innerText = "🌟BEST SCORE :" + highscore
+                }
+                else if(totalscore > localStorage.getItem('best1')){
+                     localStorage.setItem("best1",totalscore)
+                     var highscore = localStorage.getItem("best1")
+                     document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore;
+                }
+                else{
+                    var highscore = localStorage.getItem("best1");
+                    document.getElementById('highscore').innerText ="🌟BEST SCORE :" +  highscore
+                }
+    
+   }
 }
 )
 }
